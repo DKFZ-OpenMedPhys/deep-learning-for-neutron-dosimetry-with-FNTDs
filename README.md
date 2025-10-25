@@ -302,6 +302,8 @@ scripts/
     │       └── number_of_tracks_testset_extended.xlsx
     └── number_of_tracks_extended.py
 ```
+#### Steps (14)-(15): manually on the local PC.
+
 ##### (14) Binary segmentation performance with: advanced_metrics.py
 
 This script is used for the calculation of the adapted metrics regarding the performance of binary segmentation. 
