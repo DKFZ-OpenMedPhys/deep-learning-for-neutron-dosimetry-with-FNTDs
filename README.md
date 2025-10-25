@@ -302,7 +302,7 @@ scripts/
     │       └── number_of_tracks_testset_extended.xlsx
     └── number_of_tracks_extended.py
 ```
-##### (14) advanced_metrics.py
+##### (14) Binary segmentation performance with: advanced_metrics.py
 
 This script is used for the calculation of the adapted metrics regarding the performance of binary segmentation. 
 
@@ -319,7 +319,7 @@ You can copy the summary.json (7) or summary_test.json (12) into "scripts/advanc
 run the script, get summary_validation.xlsx (14) or summary_test_ss####_##_##.xlsx (14) as output and copy them 
 back to the original path as shown in "E) Detailed Folder and File Structure".
 
-##### (15) number_of_tracks_extended.py
+##### (15) Dosimetry performance with: number_of_tracks_extended.py
 
 This script is used for creating the instance masks and overlay images from the binary label masks for the test dataset.
 It also counts the number of tracks.
