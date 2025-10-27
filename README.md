@@ -17,17 +17,9 @@ First, the folder and file structure on the local PC and the cluster will be exp
 If you are running the nnU-Net V2 locally on you PC, an already functioning setup is required.
 It includes for instance, a virtual environment (venv), the installed nnU-Net V2, the "data" folder, VS code, etc.
 On my local PC, all those folders were located on the same level, as shown here: 
-```text
-│ Virtual enviroment is created here:
-│ -----------------------------------
+```text 
 ├── venv/...
-│
-│ The nnU-Net-"stuff" is installed here:
-│ --------------------------------------
 ├── nnUNet/...
-│
-│ The folder "data" which is required by the nnU-Net:
-│ ---------------------------------------------------
 └── data/
     ├── nnUNet_raw/...
     ├── nnUNet_preprocessed/...
