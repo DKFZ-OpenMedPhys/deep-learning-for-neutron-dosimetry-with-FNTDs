@@ -218,7 +218,7 @@ data/
     │   │   ├── checkpoint_final.pth
     │   │   ├── debug.json     
     │   │   ├── progress.png                  
-    │   │   └── training_log_####_#_##_##_##_##.txt      
+    │   │   └── training_log_####_#_##_##_##_##.txt (16)      
     │   ├── fold_1/... (7)
     │   ├── fold_2/... (7)
     │   ├── fold_3/... (7)
@@ -284,15 +284,25 @@ These two Python scripts can be downloaded from this repository. It is recommend
 ```text
 scripts/
 ├── advanced_metrics/advanced_metrics.py (14)
-└── number_of_tracks_extended/ (15)
-    ├── data/Dataset010_PTB_all_energies_1mm_no_background_alldata
-    │   └── test
-    │       ├── imagesTs/ss####_##_##_###_0000.png
-    │       ├── imagesTs_extended/ss####_##_##_###_0000.png
-    │       ├── labelsPredict_PP/ss####_##_##_###.png
-    │       ├── labelsPredict_PP_extended/ss####_##_##_###.png
-    │       └── number_of_tracks_testset_extended.xlsx
-    └── number_of_tracks_extended.py
+├── number_of_tracks_extended/ (15)
+│   ├── data/Dataset010_PTB_all_energies_1mm_no_background_alldata
+│   │   └── test
+│   │       ├── imagesTs/ss####_##_##_###_0000.png
+│   │       ├── imagesTs_extended/ss####_##_##_###_0000.png
+│   │       ├── labelsPredict_PP/ss####_##_##_###.png
+│   │       ├── labelsPredict_PP_extended/ss####_##_##_###.png
+│   │       └── number_of_tracks_testset_extended.xlsx
+│   └── number_of_tracks_extended.py
+└── plots_paper/ (16)
+    ├── plots_paper.ipnyb 
+    ├── fold1_training_log_####_##_##_##_##_##.txt
+    ├── fold2_training_log_####_##_##_##_##_##.txt
+    ├── fold3_training_log_####_##_##_##_##_##.txt
+    ├── fold4_training_log_####_##_##_##_##_##.txt
+    ├── fold5_training_log_####_##_##_##_##_##.txt
+    ├── AmBe_spec_high_activity.txt
+    └── 09_ML_experiment_overview_250905.xlsx
+
 ```
 #### Steps (14)-(15): manually on the local PC.
 
@@ -331,6 +341,12 @@ It has to be applied for each test sub-dataset.
 You can copy the mentioned input into "scripts/number_of_tracks_testset_extended/",
 run the script, get an excel "number_of_tracks_extended.xlsx" (15), one by one for each subset, and copy the results into the summary excel sheet "number_of_tracks_testset_extended.xlsx" that contains all subsets.
 
-##### (16) Final results
+##### (16) Creating the plots/results with: plots_paper.ipnyb
 
-The results from the data analysis were summarized in excel sheets and finally plotted with Python as shown in Thai et al. (2025).
+The results from the data analysis in (14)-(15) were summarized in the overall excel sheet "09_ML_experiment_overview_250905.xlsx".
+This sheet is stored in the folder "plots_paper/" together with the five different training logs,
+which were copied from "nnUNet_results/Dataset010_PTB_all_energies_1mm_no_background_alldata/nnUNetTrainer__nnUNetResEncUNetPlans_24G__2d/fold#",
+and renamed as "fold#_training_log_####_##_##_##_##_##.txt".
+Also the file "AmBe_spec_high_activity.txt" that contains the 241Am-Be spectrum is stored in the same folder.
+
+Together with the these files, the notebook "plots_paper.ipnyb" can be run. this will create the plots and results from "Thai et al. (2025)".
