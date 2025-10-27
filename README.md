@@ -330,3 +330,7 @@ Output:
 It has to be applied for each test sub-dataset.
 You can copy the mentioned input into "scripts/number_of_tracks_testset_extended/",
 run the script, get an excel "number_of_tracks_extended.xlsx" (15), one by one for each subset, and copy the results into the summary excel sheet "number_of_tracks_testset_extended.xlsx" that contains all subsets.
+
+##### (16) Final results
+
+The results from the data analysis were finally plotted as shown in Thai et al. (2025).
