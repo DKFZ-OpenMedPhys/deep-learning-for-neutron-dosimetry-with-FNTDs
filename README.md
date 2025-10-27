@@ -304,7 +304,7 @@ scripts/
     └── 09_ML_experiment_overview_250905.xlsx
 
 ```
-#### Steps (14)-(15): manually on the local PC.
+#### Steps (14)-(16): manually on the local PC.
 
 ##### (14) Binary segmentation performance with: advanced_metrics.py
 
@@ -344,9 +344,7 @@ run the script, get an excel "number_of_tracks_extended.xlsx" (15), one by one f
 ##### (16) Creating the plots/results with: plots_paper.ipnyb
 
 The results from the data analysis in (14)-(15) were summarized in the overall excel sheet "09_ML_experiment_overview_250905.xlsx".
-This sheet is stored in the folder "plots_paper/" together with the five different training logs,
-which were copied from "nnUNet_results/Dataset010_PTB_all_energies_1mm_no_background_alldata/nnUNetTrainer__nnUNetResEncUNetPlans_24G__2d/fold#",
-and renamed as "fold#\_training\_log\_####\_##\_##\_##\_##\_##.txt".
-Also the file "AmBe_spec_high_activity.txt" that contains the 241Am-Be spectrum is stored in the same folder.
+This sheet is stored in the folder "plots_paper/" together with the five different log files from "nnUNet_results/Dataset010_PTB_all_energies_1mm_no_background_alldata/nnUNetTrainer__nnUNetResEncUNetPlans_24G__2d/fold#", which were renamed to "fold#\_training\_log\_####\_##\_##\_##\_##\_##.txt".
+Also the file "AmBe_spec_high_activity.txt" (241Am-Be spectrum) is stored in the same folder.
 
-Together with these files, the notebook "plots_paper.ipnyb" can be run. this will create the plots and results from "Thai et al. (2025)".
+The notebook "plots_paper.ipnyb" uses all these files as input. Running the notebook will create plots and results from "Thai et al. (2025)".
