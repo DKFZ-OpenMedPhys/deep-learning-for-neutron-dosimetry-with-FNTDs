@@ -333,4 +333,4 @@ run the script, get an excel "number_of_tracks_extended.xlsx" (15), one by one f
 
 ##### (16) Final results
 
-The results from the data analysis were finally plotted as shown in Thai et al. (2025).
+The results from the data analysis were summarized in excel sheets and finally plotted with Python as shown in Thai et al. (2025).
