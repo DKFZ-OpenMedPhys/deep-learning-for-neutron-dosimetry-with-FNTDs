@@ -287,7 +287,7 @@ The performance of binary segmentation and dosimetry was evaluated by different 
 These two Python scripts can be downloaded from this repository. It is recommended to follow the same file structure as shown here:
 ```text
 scripts/
-├── advanced_metrics/advanced_metrics.py (14)
+├── adapted_metrics/adapted_metrics.py (14)
 ├── number_of_tracks_extended/ (15)
 │   ├── data/Dataset010_PTB_all_energies_1mm_no_background_alldata/
 │   │   └── test
@@ -309,7 +309,7 @@ scripts/
 ```
 #### Steps (14)-(16): manually on the local PC.
 
-##### (14) Binary segmentation performance with: advanced_metrics.py
+##### (14) Binary segmentation performance with: adapted_metrics.py
 
 This script is used for the calculation of the adapted metrics regarding the performance of binary segmentation. 
 
@@ -322,7 +322,7 @@ Output:
 Note: You might have to change the output file names manually.
 
 It has to be applied for the validation dataset and for each test sub-dataset.
-You can copy the "summary.json" (7) or "summary_test.json" (12) into "scripts/advanced_metrics/",
+You can copy the "summary.json" (7) or "summary_test.json" (12) into "scripts/adapted_metrics/",
 run the script, get "summary_validation.xlsx" (14) or "summary_test_ss####\_##\_##.xlsx" (14) as output and copy them 
 back to the original path as shown in section E).
 
