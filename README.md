@@ -368,3 +368,10 @@ All results from the data analysis in (14)-(15) were summarized and saved in the
 This sheet is stored in the folder "plots_paper/" together with the five different log files from "nnUNet_results/Dataset010_PTB_all_energies_1mm_no_background_alldata/nnUNetTrainer__nnUNetResEncUNetPlans_24G__2d/fold#", which were renamed to "fold#\_training\_log\_####\_##\_##\_##\_##\_##.txt".
 
 The notebook "plots_paper.ipnyb" uses all these files as input. Running the notebook will create plots and results from "Thai et al. (2025)".
+
+## G) Acknowledgements
+
+This project was partially financed by the German Research Foundation
+(Deutsche Forschungsgemeinschaft, DFG; Project number 495217943).
+The authors acknowledge support by the state of Baden-Württemberg through
+bwHPC.
