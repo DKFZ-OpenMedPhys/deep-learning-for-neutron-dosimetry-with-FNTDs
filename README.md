@@ -294,9 +294,9 @@ scripts/
 ├── number_of_tracks_extended/ (15)
 │   ├── data/Dataset010_PTB_all_energies_1mm_no_background_alldata/
 │   │   └── test
-│   │       ├── imagesTs/ss####_##_##_###_0000.png
+│   │       ├── imagesTs/ss####_##_##_###_0000.png (9)+(15)
 │   │       ├── imagesTs_tracks_extended/ss####_##_##_###_0000.png
-│   │       ├── labelsPredict_PP/ss####_##_##_###.png
+│   │       ├── labelsPredict_PP/ss####_##_##_###.png (11)+(15)
 │   │       ├── labelsPredict_PP_tracks_extended/ss####_##_##_###.png
 │   │       └── number_of_tracks_testset_extended.xlsx
 │   └── number_of_tracks_extended.py
@@ -339,8 +339,8 @@ This script is used for creating the instance label masks and overlay images fro
 It also counts the number of tracks.
 
 Input:
-- imagesTs/ss####\_##\_##/ss####\_##\_##\_###\_0000.png (15)
-- labelsPredict_PP/ss####\_##\_##/ss####\_##\_##\_###.png (15)  
+- imagesTs/ss####\_##\_##/ss####\_##\_##\_###\_0000.png (9)+(15)
+- labelsPredict_PP/ss####\_##\_##/ss####\_##\_##\_###.png (11)+(15)  
 
 Output:
 - imagesTs_tracks_extended (15)
