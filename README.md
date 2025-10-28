@@ -314,12 +314,12 @@ scripts/
 This script is used for the calculation of the adapted metrics regarding the performance of binary segmentation. 
 
 Input:
-- summary.json (7)
-- summary_test.json (12) 
+- summary.json (7) or summary_test.json (12) 
 
 Output:
-- summary_validation.xlsx (14)
-- summary_test_ss####\_##\_##.xlsx (14) 
+- summary_validation.xlsx (14) or summary_test_ss####\_##\_##.xlsx (14) 
+
+Note: You might have to change the output file names manually.
 
 It has to be applied for the validation dataset and for each test sub-dataset.
 You can copy the "summary.json" (7) or "summary_test.json" (12) into "scripts/advanced_metrics/",
