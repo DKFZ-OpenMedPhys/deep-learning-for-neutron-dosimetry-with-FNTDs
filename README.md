@@ -216,7 +216,7 @@ data/
     │   │   │   ├── PTB_all_energies_1mm_no_background_####.npz (7)
     │   │   │   ├── PTB_all_energies_1mm_no_background_####.pkl (7)
     │   │   │   ├── PTB_all_energies_1mm_no_background_####.png (7)
-    │   │   │   ├── summary.json (7)
+    │   │   │   ├── summary.json (7)+(14)
     │   │   │   └── summary_validation.xlsx (14)
     │   │   ├── checkpoint_best.pth
     │   │   ├── checkpoint_final.pth
@@ -231,12 +231,15 @@ data/
     │       ├── postprocessed/
     │       │   ├── dataset.json
     │       │   ├── plans.json
-    │       │   └── PTB_all_energies_1mm_no_background_####.png
+    │       │   ├── PTB_all_energies_1mm_no_background_####.png
+    │       │   ├── summary.json (8)+(14)
+    │       │   └── summary_crossval_results_folds_0_1_2_3_4.xlsx (14)
     │       ├── dataset.json
     │       ├── plans.json
     │       ├── postprocessing.json     
     │       ├── postprocessing.pkl                
-    │       └── PTB_all_energies_1mm_no_background_####.png 
+    │       ├── PTB_all_energies_1mm_no_background_####.png
+    │       └── summary.json 
     ├── inference_information.json (8)      
     ├── inference_instructions.txt (8)
     ├── test_best_configuration/
@@ -249,7 +252,7 @@ data/
     │   │   └── predict_from_raw_data_args.json
     │   └── labelsPredict_PP/ss####_##_##/ 
     │       ├── ss####_##_##_###.png (11)+(15)
-    │       ├── summary_test.json (12)
+    │       ├── summary_test.json (12)+(14)
     │       └── summary_test_ss####_##_##.xlsx (14)    
     ├── slurm_logs_preparation_and_preprocessing/ (13) 
     │   ├── nnunetv2_cpu_preparation_and_preprocessing.sh (3)-(6)
@@ -314,15 +317,19 @@ scripts/
 This script is used for the calculation of the adapted metrics regarding the performance of binary segmentation. 
 
 Input:
-- summary.json (7) or summary_test.json (12) 
+- summary.json (7)+(14) (for validation of an individual fold);
+- summary.json (8)+(14) (for the cross-validation);
+- summary_test.json (12)+(14) (for test of one H*(10) case) 
 
 Output:
-- summary_validation.xlsx (14) or summary_test_ss####\_##\_##.xlsx (14) 
+- summary_validation.xlsx (14);
+- summary_crossval_results_folds_0_1_2_3_4.xlsx (14)
+- summary_test_ss####\_##\_##.xlsx (14) 
 
 Note: You might have to change the output file names manually.
 
 It has to be applied for the validation dataset and for each test sub-dataset.
-You can copy the "summary.json" (7) or "summary_test.json" (12) into "scripts/adapted_metrics/",
+You can copy the "summary.json" (7)/(8) or "summary_test.json" (12) into "scripts/adapted_metrics/",
 run the script, get "summary_validation.xlsx" (14) or "summary_test_ss####\_##\_##.xlsx" (14) as output and copy them 
 back to the original path as shown in section E).
 
