@@ -15,8 +15,8 @@ First, the folder and file structure on the local PC and the cluster will be exp
 ## B) Folder and File Structure on the Local PC
 
 If you are running the nnU-Net V2 locally on you PC, an already functioning setup is required.
-It includes for instance, a virtual environment (venv), the installed nnU-Net V2, the "data" folder, VS code, etc.
-On my local PC, all those folders were located on the same level, as shown here: 
+It includes for instance, a virtual environment (venv), the installed nnU-Net V2, the "data" folder, Visual Studio Code, etc.
+On my local PC (Linux/Ubuntu), all those folders were located on the same level, as shown here: 
 ```text 
 ├── venv/...
 ├── nnUNet/...
@@ -25,7 +25,16 @@ On my local PC, all those folders were located on the same level, as shown here:
     ├── nnUNet_preprocessed/Dataset010_PTB_all_energies_1mm_no_background_alldata/...
     └── nnUNet_results/Dataset010_PTB_all_energies_1mm_no_background_alldata/...
 ```
-The instructions on how to set up the nnU-Net and the "data" folder is described in the Git repository of [Isensee et al. (2021)](https://github.com/MIC-DKFZ/nnUNet).
+The virtual environment can be created with the command (e.g. in the Visual Studio Code terminal):
+```
+python3 -m venv venv
+```
+You can activate the virtual environment with the command:
+```
+source venv/bin/activate
+```
+
+Detailed instructions on how to set up the "nnU-Net" and the "data" folder is described in the Git repository of [Isensee et al. (2021)](https://github.com/MIC-DKFZ/nnUNet).
 
 Note: "Dataset###" was an internal ID to distinguish between different experiments/versions. The final version, namely
 "Dataset010", was the only used for the study.
