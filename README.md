@@ -7,7 +7,7 @@ This repository contains some used files in Thai et al.
 In this README you can find detailed descriptions regarding:
 - Instructions for reproducing this study from data input to final output of the nnU-Net;
 - Setting up a container for the cluster BwUniCluster3.0;
-- Some data analysis scripts regarding metrics.
+- Some data analysis scripts regarding metrics and plots.
 
 Some of my steps were done locally on the PC and some on the cluster.
 First, the folder and file structure on the local PC and the cluster will be explained, before the workflow is described.
@@ -21,11 +21,14 @@ On my local PC, all those folders were located on the same level, as shown here:
 ├── venv/...
 ├── nnUNet/...
 └── data/
-    ├── nnUNet_raw/...
-    ├── nnUNet_preprocessed/...
-    └── nnUNet_results/...
+    ├── nnUNet_raw/Dataset010_PTB_all_energies_1mm_no_background_alldata/...
+    ├── nnUNet_preprocessed/Dataset010_PTB_all_energies_1mm_no_background_alldata/...
+    └── nnUNet_results/Dataset010_PTB_all_energies_1mm_no_background_alldata/...
 ```
 The instructions on how to set up the nnU-Net and the "data" folder is described in the Git repository of [Isensee et al. (2021)](https://github.com/MIC-DKFZ/nnUNet).
+
+Note: "Dataset###" was an internal ID to distinguish between different experiments/versions. The final version, namely
+"Dataset010", was the only used for the study.
 
 ## C) Folder and File Structure on the Cluster
 
@@ -75,7 +78,7 @@ Transfer_PC/
 ## D) Step by step instructions for the nnU-Net workflow 
 
 Here, the whole pipeline from raw data input to final output and evaluation is described.
-In the section "E) Detailed Folder and File Structure" below, the whole data structure can be seen in full depth.
+In the section E), the whole data structure can be seen in full depth.
 Every created file or folder is linked by "(#)" to the corresponding step(s) in the workflow.
 There, you can have a better overview in which step(s), which files or folders where created or required.
 
@@ -94,7 +97,7 @@ datasets were uploaded to [Mendeley Data](10.17632/pwh8tph424.1).
 You can download them and use them as your starting point.
 
 Download the training dataset.
-Copy "imagesTr" and "labelsTr" into the folder "data/nnUNet_raw/Dataset010_PTB_all_energies_1mm_no_background_alldata/"
+Copy the folders "imagesTr" and "labelsTr" (including all files) into the folder "data/nnUNet_raw/Dataset010_PTB_all_energies_1mm_no_background_alldata/"
 on your local PC.
 
 ##### (2) Create the "dataset.json" file
@@ -104,7 +107,8 @@ Copy it to the directory "nnUNet/nnunetv2/dataset_conversion/" on your local PC.
 Adapt the Python file if needed.
 Run this Python script to create the "dataset.json" file. 
 
-Copy all the folders and files from steps (1) and the "dataset.json" file from step (2) to the cluster, so you can continue working with the cluster.
+Copy all the folders and files from step (1) and the "dataset.json" file from step (2) to the cluster,
+so you can work with the cluster after this step.
 
 #### Steps (3)-(6): on the cluster with a slurm script.
 
@@ -150,9 +154,9 @@ sbatch nnunetv2_cpu_find_best_configuration.sh
 
 ##### (9) Get the raw images and reference label masks for testing
 
-Download the test dataset from [Mendeley Data](10.17632/pwh8tph424.1), copy "imagesTs" and "labelsTs"
+Download the test dataset from [Mendeley Data](10.17632/pwh8tph424.1), copy the folders "imagesTs" and "labelsTs" (including all files)
 into the folder "data/nnUNet_results/Dataset010_PTB_all_energies_1mm_no_background_alldata/test_best_configuration/" on the cluster
-and create the same (sub)folders for "labelsPredict/ss####\_##\_##/" and "labelsPredict_PP/ss####\_##\_##/" (see "E) Detailed Folder and File Sturcture").
+and create the same (sub)folders for "labelsPredict/ss####\_##\_##/" and "labelsPredict_PP/ss####\_##\_##/" (see section E).
 
 #### Steps (10)-(12): on the cluster with a slurm script.
 
@@ -175,9 +179,9 @@ sbatch nnunetv2_gpu_testing_multiple.sh
 ##### (13) Transfer
 
 Move the slurm scripts to their corresponding "slurm_logs_..." folders.
-Move all "slurm_logs_..." folders to "data/results/Dataset010_PTB_all_energies_1mm_no_background_alldata/".
+Then, move all "slurm_logs_..." folders to "data/results/Dataset010_PTB_all_energies_1mm_no_background_alldata/".
 Transfer everything from the cluster folder "data" to the local PC folder "data".
-Now you have everything on the local PC and can do further analysis.
+Now you have everything on the local PC and you can do the further data analysis on your PC.
 
 
 ## E) Detailed Folder and File Structure
@@ -247,16 +251,16 @@ data/
     │       ├── ss####_##_##_###.png (11)+(15)
     │       ├── summary_test.json (12)
     │       └── summary_test_ss####_##_##.xlsx (14)    
-    ├── slurm_logs_preparation_and_preprocessing/ (3)-(6)
-    │   ├── nnunetv2_cpu_preparation_and_preprocessing.sh
+    ├── slurm_logs_preparation_and_preprocessing/ (13) 
+    │   ├── nnunetv2_cpu_preparation_and_preprocessing.sh (3)-(6)
     │   ├── slurm_preparation_Dataset010_dev_cpu_il_######.err
     │   └── slurm_preparation_Dataset010_dev_cpu_il_######.out                                   
-    ├── slurm_logs_training/ (7)
-    │   ├── nnunetv2_gpu_training_fold0.sh
-    │   ├── nnunetv2_gpu_training_fold1.sh
-    │   ├── nnunetv2_gpu_training_fold2.sh
-    │   ├── nnunetv2_gpu_training_fold3.sh
-    │   ├── nnunetv2_gpu_training_fold4.sh
+    ├── slurm_logs_training/ (13)
+    │   ├── nnunetv2_gpu_training_fold0.sh (7)
+    │   ├── nnunetv2_gpu_training_fold1.sh (7)
+    │   ├── nnunetv2_gpu_training_fold2.sh (7)
+    │   ├── nnunetv2_gpu_training_fold3.sh (7)
+    │   ├── nnunetv2_gpu_training_fold4.sh (7)
     │   ├── slurm_train_fold0_Dataset010_gpu_h100_il_######.err
     │   ├── slurm_train_fold0_Dataset010_gpu_h100_il_######.out                    
     │   ├── slurm_train_fold1_Dataset010_gpu_h100_il_######.err
@@ -267,12 +271,12 @@ data/
     │   ├── slurm_train_fold3_Dataset010_gpu_h100_######.out
     │   ├── slurm_train_fold4_Dataset010_gpu_h100_il_######.err     
     │   └── slurm_train_fold4_Dataset010_gpu_h100_il_######.out                                    
-    ├── slurm_logs_find_best_configuration/ (8)
-    │   ├── nnunetv2_cpu_find_best_configuration.sh
+    ├── slurm_logs_find_best_configuration/ (13)
+    │   ├── nnunetv2_cpu_find_best_configuration.sh (8)
     │   ├── slurm_find_best_configuration_Dataset010_cpu_il_######.err
     │   └── slurm_find_best_configuration_Dataset010_cpu_il_######.out                                   
-    └── slurm_logs_testing/ (10)-(12)
-        ├── nnunetv2_gpu_testing_multiple.sh
+    └── slurm_logs_testing/ (13)
+        ├── nnunetv2_gpu_testing_multiple.sh (10)-(12)
         ├── slurm_test_Dataset010_gpu_a100_il_######_ss####_##_##.err
         ├── slurm_test_Dataset010_gpu_a100_il_######_ss####_##_##.out    
         ├── slurm_test_Dataset010_gpu_a100_il_######_all.err 
@@ -280,12 +284,12 @@ data/
 ```
 ## F) Further Data Analysis
 The performance of binary segmentation and dosimetry was evaluated by different metrics.
-These two Python scripts can be downloaded from this repository. It is recommended to follow the same file sturcture as shown here:
+These two Python scripts can be downloaded from this repository. It is recommended to follow the same file structure as shown here:
 ```text
 scripts/
 ├── advanced_metrics/advanced_metrics.py (14)
 ├── number_of_tracks_extended/ (15)
-│   ├── data/Dataset010_PTB_all_energies_1mm_no_background_alldata
+│   ├── data/Dataset010_PTB_all_energies_1mm_no_background_alldata/
 │   │   └── test
 │   │       ├── imagesTs/ss####_##_##_###_0000.png
 │   │       ├── imagesTs_extended/ss####_##_##_###_0000.png
@@ -318,13 +322,13 @@ Output:
 - summary_test_ss####\_##\_##.xlsx (14) 
 
 It has to be applied for the validation dataset and for each test sub-dataset.
-You can copy the summary.json (7) or summary_test.json (12) into "scripts/advanced_metrics/",
-run the script, get summary_validation.xlsx (14) or summary_test_ss####_##_##.xlsx (14) as output and copy them 
-back to the original path as shown in "E) Detailed Folder and File Structure".
+You can copy the "summary.json" (7) or "summary_test.json" (12) into "scripts/advanced_metrics/",
+run the script, get "summary_validation.xlsx" (14) or "summary_test_ss####\_##\_##.xlsx" (14) as output and copy them 
+back to the original path as shown in section E).
 
 ##### (15) Dosimetry performance with: number_of_tracks_extended.py
 
-This script is used for creating the instance masks and overlay images from the binary label masks for the test dataset.
+This script is used for creating the instance label masks and overlay images from the binary label masks for the test dataset.
 It also counts the number of tracks.
 
 Input:
@@ -337,12 +341,14 @@ Output:
 - number_of_tracks_extended.xlsx (15)
 
 It has to be applied for each test sub-dataset.
-You can copy the mentioned input into "scripts/number_of_tracks_testset_extended/",
-run the script, get an excel "number_of_tracks_extended.xlsx" (15), one by one for each subset, and copy the results into the summary excel sheet "number_of_tracks_testset_extended.xlsx" that contains all subsets.
+You can copy the mentioned input into "scripts/number_of_tracks_extended/",
+run the script, get an excel "number_of_tracks_extended.xlsx" (15), one by one for each subset,
+and copy the results into the summary excel sheet template "number_of_tracks_testset_extended.xlsx" that contains all subsets.
+You can then store your files similar to the shown file structure.
 
 ##### (16) Creating the plots/results with: plots_paper.ipnyb
 
-The results from the data analysis in (14)-(15) were summarized in the overall excel sheet "All_data.xlsx".
+All results from the data analysis in (14)-(15) were summarized and saved in the excel sheet "All_data.xlsx".
 This sheet is stored in the folder "plots_paper/" together with the five different log files from "nnUNet_results/Dataset010_PTB_all_energies_1mm_no_background_alldata/nnUNetTrainer__nnUNetResEncUNetPlans_24G__2d/fold#", which were renamed to "fold#\_training\_log\_####\_##\_##\_##\_##\_##.txt".
 
 The notebook "plots_paper.ipnyb" uses all these files as input. Running the notebook will create plots and results from "Thai et al. (2025)".
