@@ -375,3 +375,9 @@ This project was partially financed by the German Research Foundation
 (Deutsche Forschungsgemeinschaft, DFG; Project number 495217943).
 The authors acknowledge support by the state of Baden-Württemberg through
 bwHPC.
+
+## H) Development
+
+This project was developed by:
+- Long-Yang Jan Thai (DKFZ, Lead Developer)
+- Dr. José Vedelago (DKFZ, Principal Investigator / Research Group Leader)
