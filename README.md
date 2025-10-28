@@ -292,9 +292,9 @@ scripts/
 │   ├── data/Dataset010_PTB_all_energies_1mm_no_background_alldata/
 │   │   └── test
 │   │       ├── imagesTs/ss####_##_##_###_0000.png
-│   │       ├── imagesTs_extended/ss####_##_##_###_0000.png
+│   │       ├── imagesTs_tracks_extended/ss####_##_##_###_0000.png
 │   │       ├── labelsPredict_PP/ss####_##_##_###.png
-│   │       ├── labelsPredict_PP_extended/ss####_##_##_###.png
+│   │       ├── labelsPredict_PP_tracks_extended/ss####_##_##_###.png
 │   │       └── number_of_tracks_testset_extended.xlsx
 │   └── number_of_tracks_extended.py
 └── plots_paper/ (16)
@@ -337,7 +337,7 @@ Input:
 
 Output:
 - imagesTs_tracks_extended (15)
-- labelsPredict_PP_extended (15)
+- labelsPredict_PP_tracks_extended (15)
 - number_of_tracks_extended.xlsx (15)
 
 It has to be applied for each test sub-dataset.
