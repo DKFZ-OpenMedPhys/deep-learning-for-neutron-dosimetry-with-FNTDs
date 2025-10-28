@@ -173,7 +173,7 @@ and create the same (sub)folders for "labelsPredict/ss####\_##\_##/" and "labels
 
 ##### (11) Apply post-processing
 
-##### (12) Evaluation/Creating a summary.json file
+##### (12) Evaluation/Creating a "summary.json" file
 
 The slurm script "nnunetv2_gpu_testing_multiple.sh"
 needs to be run on the cluster, e.g. with the command:
@@ -307,33 +307,33 @@ scripts/
 │   │       ├── imagesTs_tracks_extended/ss####_##_##_###_0000.png
 │   │       ├── labelsPredict_PP/ss####_##_##_###.png (11)+(15)
 │   │       ├── labelsPredict_PP_tracks_extended/ss####_##_##_###.png
-│   │       └── number_of_tracks_testset_extended.xlsx
-│   └── number_of_tracks_extended.py
+│   │       └── number_of_tracks_testset_extended.xlsx (15)
+│   └── number_of_tracks_extended.py (15)
 └── plots_paper/ (16)
-    ├── plots_paper.ipnyb 
-    ├── fold1_training_log_####_##_##_##_##_##.txt
-    ├── fold2_training_log_####_##_##_##_##_##.txt
-    ├── fold3_training_log_####_##_##_##_##_##.txt
-    ├── fold4_training_log_####_##_##_##_##_##.txt
-    ├── fold5_training_log_####_##_##_##_##_##.txt
-    └── All_data.xlsx
+    ├── plots_paper.ipnyb (16)
+    ├── fold1_training_log_####_##_##_##_##_##.txt (16)
+    ├── fold2_training_log_####_##_##_##_##_##.txt (16)
+    ├── fold3_training_log_####_##_##_##_##_##.txt (16)
+    ├── fold4_training_log_####_##_##_##_##_##.txt (16)
+    ├── fold5_training_log_####_##_##_##_##_##.txt (16)
+    └── All_data.xlsx (16)
 
 ```
 #### Steps (14)-(16): manually on the local PC.
 
-##### (14) Binary segmentation performance with: adapted_metrics.py
+##### (14) Binary segmentation performance with "adapted_metrics.py"
 
 This script is used for the calculation of the adapted metrics regarding the performance of binary segmentation. 
 
 Input:
-- summary.json (7)+(14) (for validation of an individual fold);
-- summary.json (8)+(14) (for the cross-validation);
-- summary_test.json (12)+(14) (for test of one H*(10) case) 
+- "summary.json" (7)+(14) (for the validation of an individual fold);
+- "summary.json" (8)+(14) (for the cross-validation);
+- "summary_test.json" (12)+(14) (for the testing of an H*(10) subset). 
 
 Output:
-- summary_validation.xlsx (14);
-- summary_crossval_results_folds_0_1_2_3_4.xlsx (14)
-- summary_test_ss####\_##\_##.xlsx (14) 
+- "summary_validation.xlsx" (14);
+- "summary_crossval_results_folds_0_1_2_3_4.xlsx" (14);
+- "summary_test_ss####\_##\_##.xlsx" (14). 
 
 Note: You might have to change the output file names manually.
 
@@ -342,32 +342,32 @@ You can copy the "summary.json" (7)/(8) or "summary_test.json" (12) into "script
 run the script, get "summary_validation.xlsx" (14) or "summary_test_ss####\_##\_##.xlsx" (14) as output and copy them 
 back to the original path as shown in section E).
 
-##### (15) Dosimetry performance with: number_of_tracks_extended.py
+##### (15) Dosimetry performance with "number_of_tracks_extended.py"
 
 This script is used for creating the instance label masks and overlay images from the binary label masks for the test dataset.
 It also counts the number of tracks.
 
 Input:
-- imagesTs/ss####\_##\_##/ss####\_##\_##\_###\_0000.png (9)+(15)
-- labelsPredict_PP/ss####\_##\_##/ss####\_##\_##\_###.png (11)+(15)  
+- "imagesTs/ss####\_##\_##/ss####\_##\_##\_###\_0000.png" (9)+(15);
+- "labelsPredict_PP/ss####\_##\_##/ss####\_##\_##\_###.png" (11)+(15).  
 
 Output:
-- imagesTs_tracks_extended (15)
-- labelsPredict_PP_tracks_extended (15)
-- number_of_tracks_extended.xlsx (15)
+- "imagesTs_tracks_extended" (15);
+- "labelsPredict_PP_tracks_extended" (15);
+- "number_of_tracks_extended.xlsx" (15).
 
 It has to be applied for each test sub-dataset.
 You can copy the mentioned input into "scripts/number_of_tracks_extended/",
 run the script, get an excel "number_of_tracks_extended.xlsx" (15), one by one for each subset,
-and copy the results into the summary excel sheet template "number_of_tracks_testset_extended.xlsx" that contains all subsets.
+and copy the results into the summary excel sheet template "number_of_tracks_testset_extended.xlsx" (15) that contains all subsets.
 You can then store your files similar to the shown file structure.
 
 ##### (16) Creating the plots/results with: plots_paper.ipnyb
 
-All results from the data analysis in (14)-(15) were summarized and saved in the excel sheet "All_data.xlsx".
-This sheet is stored in the folder "plots_paper/" together with the five different log files from "nnUNet_results/Dataset010_PTB_all_energies_1mm_no_background_alldata/nnUNetTrainer__nnUNetResEncUNetPlans_24G__2d/fold#", which were renamed to "fold#\_training\_log\_####\_##\_##\_##\_##\_##.txt".
+All results from the data analysis in (14)-(15) were summarized and saved in the excel sheet "All_data.xlsx" (16).
+This sheet is stored in the folder "plots_paper/" together with the five different log files from "nnUNet_results/Dataset010_PTB_all_energies_1mm_no_background_alldata/nnUNetTrainer__nnUNetResEncUNetPlans_24G__2d/fold#" (16), which were renamed to "fold#\_training\_log\_####\_##\_##\_##\_##\_##.txt" (16).
 
-The notebook "plots_paper.ipnyb" uses all these files as input. Running the notebook will create plots and results from "Thai et al. (2025)".
+The notebook "plots_paper.ipnyb" (16) uses all these files as input. Running the notebook will create plots and results from "Thai et al. (2025)".
 
 ## G) Acknowledgements
 
