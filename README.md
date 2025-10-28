@@ -1,4 +1,4 @@
-# Thai_et_al_2025
+# Deep learning for neutron dosimetry with FNTDs
 
 ## A) General Information about this Repository
 
