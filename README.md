@@ -102,7 +102,7 @@ specific format and naming convention. The files, after the readout
 by the FNTD reader, did not fulfill these requirements. In order to
 match these requirements, the MATLAB script from [Schmidt et al.
 (2025)](https://doi.org/10.1002/mp.17799) was used. The prepared
-datasets were uploaded to [Mendeley Data](10.17632/pwh8tph424.1).
+datasets were uploaded to [Mendeley Data](https://doi.org/10.17632/pwh8tph424.1).
 You can download them and use them as your starting point.
 
 Download the training dataset.
@@ -163,7 +163,7 @@ sbatch nnunetv2_cpu_find_best_configuration.sh
 
 ##### (9) Get the raw images and reference label masks for testing
 
-Download the test dataset from [Mendeley Data](10.17632/pwh8tph424.1), copy the folders "imagesTs" and "labelsTs" (including all files)
+Download the test dataset from [Mendeley Data](https://doi.org/10.17632/pwh8tph424.1), copy the folders "imagesTs" and "labelsTs" (including all files)
 into the folder "data/nnUNet_results/Dataset010_PTB_all_energies_1mm_no_background_alldata/test_best_configuration/" on the cluster
 and create the same (sub)folders for "labelsPredict/ss####\_##\_##/" and "labelsPredict_PP/ss####\_##\_##/" (see section E).
 
