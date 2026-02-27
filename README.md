@@ -3,7 +3,7 @@
 ## A) General Information about this Repository
 
 This repository contains some used files in Thai et al.
-(2025).
+(2026).
 
 In this README you can find detailed descriptions regarding:
 - Instructions for reproducing this study from data input to final output of the nnU-Net;
@@ -368,7 +368,7 @@ You can then store your files similar to the shown file structure.
 All results from the data analysis in (14)-(15) were summarized and saved in the excel sheet "All_data.xlsx" (16).
 This sheet is stored in the folder "plots_paper/" together with the five different log files from "nnUNet_results/Dataset010_PTB_all_energies_1mm_no_background_alldata/nnUNetTrainer__nnUNetResEncUNetPlans_24G__2d/fold#" (16), which were renamed to "fold#\_training\_log\_####\_##\_##\_##\_##\_##.txt" (16).
 
-The notebook "plots_paper.ipnyb" (16) uses all these files as input. Running the notebook will create plots and results from "Thai et al. (2025)".
+The notebook "plots_paper.ipnyb" (16) uses all these files as input. Running the notebook will create plots and results from "Thai et al. (2026)".
 
 ## G) Acknowledgements
 
